@@ -24,12 +24,8 @@ function Post() {
   }
   const submit = () => {
     if(!isEdit){
-      // console.log(post)
-      // console.log(listPost)
       const amount = count + 1 ;
       setCount(amount);
-      // console.log('console.log(count)  :' + count)
-      // console.log('console.log(post.index)   :'  + post.index)
       setPost({
         author: '',
         content:'',
@@ -38,18 +34,11 @@ function Post() {
         comment:'',
         index: amount
       });
-      // console.log(post)
       setListPost([...listPost, post]);
-      // console.log(listPost)
       
     } else {
       console.log(post.index)
-      // console.log(post)
-      // console.log(listPost)
-      // console.log(listPost.slice(post.index , post.index+1))
-      // listPost.slice(post.index , post.index+1) = post;
       listPost.find((arr,i) => {
-        // console.log(i)
         if(i == post.index) {
           listPost[i] = post;
         }
@@ -66,7 +55,6 @@ function Post() {
     }
   }
   const Edit = (p) => {
-    // console.log(p);
     setIsEdit(true);
     setPost(p);
   }
@@ -82,6 +70,9 @@ function Post() {
   }
   // comment 
 
+  const funcCallBack = () => {
+    console.log("fis");
+  }
 return(
       <div className="container-fluid">
               <div className="row">
@@ -181,7 +172,7 @@ return(
                                     </div>
                                 </div>
                                 {
-                                  isCommentShow ? <PostComment  /> : <div></div>
+                                  isCommentShow ? <PostComment comment="author1" count={count} funcCallBack={funcCallBack} /> : <div></div>
                                 }
                                 
                               </div>
