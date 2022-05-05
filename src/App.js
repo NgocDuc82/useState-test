@@ -52,8 +52,9 @@ function App() {
         }
       })
       setListPost([...listPost])
-      setIsEdit(false);
+      setIsEdit(false);    
     }
+   
   }
   const Edit = (p) => {
     // console.log(p);
