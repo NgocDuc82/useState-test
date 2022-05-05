@@ -26,8 +26,6 @@ function App() {
       console.log(listPost)
       const amount = count + 1 ;
       setCount(amount);
-      // console.log('console.log(count)  :' + count)
-      // console.log('console.log(post.index)   :'  + post.index)
       setPost({
         author: '',
         content:'',
@@ -41,10 +39,6 @@ function App() {
       
     } else {
       console.log(post.index)
-      // console.log(post)
-      // console.log(listPost)
-      // console.log(listPost.slice(post.index , post.index+1))
-      // listPost.slice(post.index , post.index+1) = post;
       listPost.find((arr,i) => {
         // console.log(i)
         if(i == post.index) {
@@ -57,13 +51,11 @@ function App() {
    
   }
   const Edit = (p) => {
-    // console.log(p);
     setIsEdit(true);
     setPost(p);
   }
 
   const like = (index) =>{
-    // console.log(like)
     listPost[index].like = !listPost[index].like
     setListPost([...listPost])
   }
