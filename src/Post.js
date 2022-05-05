@@ -89,7 +89,7 @@ return(
                               />
                           </div>
                           <div className="add-title">
-                              <label for="">title:</label> 
+                              <label for="">Đề Mục:</label> 
                               <input
                                 name="title"
                                 value={post.title ?? ""}
@@ -97,7 +97,7 @@ return(
                               />
                           </div>
                           <div className="add-content">
-                              <label for="">content:</label> 
+                              <label for="">Nội Dung:</label> 
                               <input
                                 name="content"
                                 value={post.content ?? ""}
