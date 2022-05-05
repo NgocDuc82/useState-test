@@ -1,13 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Post from './Post';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css';
 
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import ThemeSwitcher from './ThemeSwitcher';  
+import reportWebVitals from './reportWebVitals';
+// ReactDOM.render(<ThemeSwitcher />, document.getElementById('root'));  
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App />
+     */}
+    <Post />
   </React.StrictMode>
 );
 
@@ -15,3 +23,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+   
