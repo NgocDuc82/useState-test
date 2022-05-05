@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import "./App.css";
 import { render } from "@testing-library/react";
 import logo from "./assets/img/anh-logo.jpg";
-// import PostComment from './PostComment';S
 
 function PostComment(props) {
+  const { comment, count, funcCallBack} = props;
   const [postComments, setPostComments] = useState({
     comment : '',
   });
@@ -14,19 +14,15 @@ function PostComment(props) {
     const value = e.target.value;
     const name = e.target.name;
     setPostComments({...postComments,[name]:value})  
-    // console.log(postComments)  
   }
   const sendComment = () => {
-    // console.log(postComments)
-    // let comment = document.getElementById("comment").value;
     setListPostComments([...listPostComments, postComments]);
-    // console.log(listPostComments)
     setPostComments({
       content: '',
     })
-    // console.log(listPostComments)
-    // setPostComments('');
-  };
+    funcCallBack();
+  };  
+
   return (
     <>
       <div className="post-comment">
@@ -53,7 +49,7 @@ function PostComment(props) {
                   <div className="post-comment-content-right">
                     <div className="post-comment-content-right-text">
                       <strong className="post-comment-right-name">
-                        Ngoc Duc
+                        {comment}
                       </strong>
                       <p className="post-comment-right-text">{p.comment}</p>
                     </div>
