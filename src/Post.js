@@ -55,6 +55,13 @@ function Post() {
         }
       })
       setListPost([...listPost])
+      setPost({
+        author: '',
+        content:'',
+        title : '',
+        img :'',
+        comment:'',
+      });
       setIsEdit(false);
     }
   }
@@ -89,7 +96,8 @@ return(
                               />
                           </div>
                           <div className="add-title">
-                              <label for="">Đề Mục:</label> 
+                              <label for="">Đề Mục:</label>
+
                               <input
                                 name="title"
                                 value={post.title ?? ""}
