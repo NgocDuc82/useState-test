@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Post from './Post';
+import './App2.css';
+// import Post from './Post';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css';
-
+// import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import ThemeSwitcher from './ThemeSwitcher';  
 import reportWebVitals from './reportWebVitals';
@@ -13,9 +13,9 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App />
-     */}
-    <Post />
+    <App />
+    
+    {/* <Post /> */}
   </React.StrictMode>
 );
 

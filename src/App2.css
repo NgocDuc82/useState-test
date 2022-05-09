@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+ul{
+    list-style-type: none;
+}
+.container-fluid.full{
+    padding: 0;
+}
+.header{
+    display: flex;
+    justify-content:space-between;
+    height: 80px;
+    align-items: center;
+    background: #33cb6c;
+    color: #fff;
+}
+.header-logo{
+    padding-left: 30px ;
+}
+.header-logo i {
+    font-size: 50px;
+    margin-right: 5px;
+}
+.header-logo span {
+    font-weight: bold;
+}
+.header-center {
+    margin-left: 15%;
+}
+.header-center button {
+    background: none ;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: #fff ;
+    border: none;
+    box-shadow:-2px 3px 7px 0px #362626;
+    margin-right: 30px;
+}
+
+.header-center i{
+    font-size: 26px;
+    margin-right: 3px;
+}
+.header-center span {
+    font-size: 17px;
+}
+.header-logout{
+    margin-right: 50px;
+}
+.header-logout i {
+    font-size: 30px;
+}
+.header-logout strong{
+    font-size: 30px;
+}
+.header-logout span {
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 1.3px;
+}
+
+/*  content */
+.content{
+    margin-top: 30px;
+}
+.content-title {
+    text-align: center;
+}
+#btn{
+    background-color: #33cb6c;
+    color: #fff ;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+}
+#btn i {
+    margin-right: 3px;
+}
+.content-add-btn:hover{
+    opacity: 0.8;
+}
+.content-tableAdd{
+    margin-top: 20px;
+    width: 100%;
+}
+table {
+    width: 100%;
+}
+thead {
+    background:#33cb6c;
+    height: 50px;
+    color: #fff;
+}
+th {
+    margin-left: -5px;
+}
+.ModalBody-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#Modal-AddNew{
+    margin-top: 200px;
+}
+.ModalBody-wrap .input-group {
+    width: 46%;
+    margin-bottom: 10px;
+}
+#DropdownToggle-AddNew
+{
+    background:none;
+    color: #ccc;
+    border: 1px solid #ccc;
+}
+#btn-Add{
+    background: #33cb6c;
+    border: 1px solid #33cb6c;
+    min-width: 70px;
+}
+.input-group {
+   
+}
+
+.btn-edit {
+    margin-right: 20px;
+    margin-left: 10px;
+    color: #33cb6c; 
+    cursor: pointer;
+}
+.btn-delete{
+    cursor: pointer;
+    color: red;
+}
