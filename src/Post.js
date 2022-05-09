@@ -76,7 +76,7 @@ function Post() {
 return(
       <div className="container-fluid">
               <div className="row">
-                  <div className="col-3">
+                  <div className="col-3" style={{ height : '100vh' , position : 'relative'}}>
                       <div className="add" >
                           <div className="add-name">
                               <label for="">Tác Giả :</label>
@@ -181,7 +181,7 @@ return(
                     })
                   }
                   
-                <div className="col-3"></div>
+                <div className="col-4"></div>
                 </div>
       </div>
         )
