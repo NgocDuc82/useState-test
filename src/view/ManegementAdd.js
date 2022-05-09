@@ -22,7 +22,10 @@ function ManegementAdd() {
   // count the number of
   const [count, setCount] = useState(1);
   // Toggle for Modal
-  const toggle = () => setModal(!modal);
+  const toggle = () => {
+    setModal(!modal)
+    setDropdownOpen(!dropdownOpen)
+  };
   //
   const [post, setPost] = useState({
     product: "",
@@ -109,14 +112,22 @@ function ManegementAdd() {
                       onChange={(e) => onChange(e)}
                     />
                   </InputGroup>
-                  <div class="input-group mb-3">
-                    <select class="form-select" id="inputGroupSelect01">                 }
-                      <option selected>Chọn đơn vị</option>
-                      <option value="1">Kg</option>
-                      <option value="2">Hộp</option>
-                      <option value="3">Lọ</option>
-                    </select>
-                  </div>
+                  <InputGroup>
+                    <Input 
+                      placeholder="loại thực phẩm"
+                      name="quantity"
+                      value={post.quantity}
+                      onChange={(e) => onChange(e)}
+                    />
+                    <ButtonDropdown isOpen={dropdownOpen} toggle={()=>setDropdownOpen(!dropdownOpen)} >
+                      <DropdownToggle caret id="DropdownToggle-AddNew"></DropdownToggle>
+                      <DropdownMenu>
+                        <DropdownItem value = "1">Kg</DropdownItem>
+                        <DropdownItem value = "2">Lọ</DropdownItem>
+                        <DropdownItem value = "3">Hộp</DropdownItem>
+                      </DropdownMenu>
+                    </ButtonDropdown>
+                  </InputGroup>
                   <InputGroup>
                     <Input
                       placeholder="Nhập số lượng"
