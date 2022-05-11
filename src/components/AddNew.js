@@ -12,26 +12,45 @@ import {
 } from "reactstrap";
 
 function AddNew(props) {
-  const { toggle, modal, Add } = props;
-  const [post, setPost] = useState({
-    product: "",
-    quantity: "",
-    unit: "",
-    price: "",
-  });
+  const { toggle, modal, Add, Edits , isEditOrAdd,count,setPost,post} = props;
+    // count the number of
+
   const onChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
+
     setPost({ ...post, [name]: value });
+
   };
+
+  const onClickSubmit = (e) => {
+    console.log(isEditOrAdd)
+      if(!isEditOrAdd){
+        AddNew();
+      }
+      else{
+        Edits(post);
+        setPost({
+          product: "",
+          quantity: "",
+          unit: "",
+          price: "",
+        });
+      }
+  }
+
   const AddNew = () => {
+  
     Add(post);
+
     setPost({
       product: "",
       quantity: "",
       unit: "",
       price: "",
+      index: count
     });
+
   };
   return (
     <div>
@@ -79,8 +98,8 @@ function AddNew(props) {
           </div>
         </ModalBody>
         <ModalFooter>
-          <Button id="btn-Add" onClick={AddNew}>
-            ADD
+          <Button id="btn-Add" onClick={(e) => onClickSubmit()}>
+            { isEditOrAdd ? "Edit" : "Add"}
           </Button>{" "}
           <Button onClick={toggle}>Cancel</Button>
         </ModalFooter>

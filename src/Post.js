@@ -6,6 +6,7 @@ import iconTym from './assets/img/tym - fb.svg'
 import React , {useState} from 'react' ;
 import PostComment from './PostComment';
 function Post() {
+  
   const [count,setCount] = useState(0)
   const [post, setPost] = useState({
     author: '',
