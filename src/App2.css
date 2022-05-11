@@ -134,8 +134,12 @@ th {
     margin-left: 10px;
     color: #33cb6c; 
     cursor: pointer;
+    border: none;
+    background: none;
 }
 .btn-delete{
     cursor: pointer;
     color: red;
+    border: none;
+    background: none;
 }

@@ -1,61 +1,40 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import AddNew from '../components/AddNew';
+import TableAdd from '../components/TableAdd'
 import {
-  Table,
   Button,
-  Modal,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  InputGroup,
-  ButtonDropdown,
-  Input,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
 } from "reactstrap";
 
 function ManegementAdd() {
   // Modal open state
   const [modal, setModal] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   // count the number of
-  const [count, setCount] = useState(1);
-  // Toggle for Modal
+  // const [count, setCount] = useState(1);
+  // // Toggle for Modal
   const toggle = () => {
     setModal(!modal)
-    setDropdownOpen(!dropdownOpen)
+    // console.log("toggle")
+    // setDropdownOpen(!dropdownOpen)
   };
-  //
-  const [post, setPost] = useState({
-    product: "",
-    quantity: "",
-    unit: "",
-    price: "",
-    index: count,
-  });
-  const [listPost, setListPost] = useState([]);
-  const onChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
-    setPost({ ...post, [name]: value });
-  };
-  const Add = () => {
-    setListPost([...listPost, post]);
-    const amount = count + 1;
-    setCount(amount);
-    setPost({
-      product: "",
-      quantity: "",
-      unit: "",
-      price: "",
-      index: amount,
-    });
-    console.log(amount);
-    // console.log(listPost);
-    toggle();
-  };
+  
+  // //
 
+  const [listPost, setListPost] = useState([]);
+
+  const Add = (params) => {
+    setListPost([...listPost, params]);
+    // const amount = count + 1;
+    // setCount(amount);
+    params = '';
+    // console.log(amount);
+    // // console.log(listPost);
+    toggle();
+  // console.log(params)
+
+  };
+  // console.log(listPost);
   return (
     <>
       <div className="container-fluid full">
@@ -100,93 +79,11 @@ function ManegementAdd() {
               <i class="fa-solid fa-plus"></i>
               ADD NEW
             </Button>
-            <Modal id="Modal-AddNew" isOpen={modal} toggle={toggle}>
-              <ModalHeader toggle={toggle}>Thêm Sản Phẩm</ModalHeader>
-              <ModalBody>
-                <div className="ModalBody-wrap">
-                  <InputGroup className="input-AddName input-group">
-                    <Input
-                      placeholder="Tên Sản Phẩm"
-                      name="product"
-                      value={post.product}
-                      onChange={(e) => onChange(e)}
-                    />
-                  </InputGroup>
-                  <InputGroup>
-                    <Input 
-                      placeholder="loại thực phẩm"
-                      name="quantity"
-                      value={post.quantity}
-                      onChange={(e) => onChange(e)}
-                    />
-                    <ButtonDropdown isOpen={dropdownOpen} toggle={()=>setDropdownOpen(!dropdownOpen)} >
-                      <DropdownToggle caret id="DropdownToggle-AddNew"></DropdownToggle>
-                      <DropdownMenu>
-                        <DropdownItem value = "1">Kg</DropdownItem>
-                        <DropdownItem value = "2">Lọ</DropdownItem>
-                        <DropdownItem value = "3">Hộp</DropdownItem>
-                      </DropdownMenu>
-                    </ButtonDropdown>
-                  </InputGroup>
-                  <InputGroup>
-                    <Input
-                      placeholder="Nhập số lượng"
-                      name="unit"
-                      value={post.unit}
-                      onChange={(e) => onChange(e)}
-                    />
-                  </InputGroup>
-                  <InputGroup>
-                    <Input
-                      placeholder="Nhập giá tiền"
-                      name="price"
-                      value={post.price}
-                      onChange={(e) => onChange(e)}
-                    />
-                  </InputGroup>
-                </div>
-              </ModalBody>
-              <ModalFooter>
-                <Button id="btn-Add" onClick={Add}>
-                  ADD
-                </Button>{" "}
-                <Button onClick={toggle}>Cancel</Button>
-              </ModalFooter>
-            </Modal>
+              <AddNew toggle={toggle}  modal={modal}  Add={Add} />   
           </div>
           {/* form addNew end */}
           <div className="content-tableAdd">
-            <Table bordered hover borderless>
-              <thead>
-                <tr>
-                  <th>STT</th>
-                  <th>Name of Product</th>
-                  <th>Quantity</th>
-                  <th>Unit</th>
-                  <th>Price</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              {listPost.map((p, index) => {
-                return (
-                  <>
-                    <tbody>
-                      <tr>
-                        <th scope="row">{p.index}</th>
-                        <td>{p.product}</td>
-                        <td>{p.quantity}</td>
-                        <td>{p.unit}</td>
-                        <td>{p.price}</td>
-                        <td>
-                          <i className="fas fa-edit fa-lg btn-edit"></i>
-                          <i className="fas fa-trash fa-lg btn-delete"></i>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </>
-                );
-              })}
-            </Table>
+            <TableAdd listPost={listPost} />
           </div>
         </div>
       </div>
