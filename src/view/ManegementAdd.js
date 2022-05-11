@@ -1,38 +1,43 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import AddNew from '../components/AddNew';
-import TableAdd from '../components/TableAdd'
-import {
-  Button,
-} from "reactstrap";
+import AddNew from "../components/AddNew";
+import TableAdd from "../components/TableAdd";
+import { Button } from "reactstrap";
 
 function ManegementAdd() {
-  // Modal open state
   const [modal, setModal] = useState(false);
-
-  // count the number of
-  // const [count, setCount] = useState(1);
-  // // Toggle for Modal
+  const [count, setCount] = useState(0);
   const toggle = () => {
-    setModal(!modal)
-    // console.log("toggle")
-    // setDropdownOpen(!dropdownOpen)
+    setModal(!modal);
   };
-  
-  // //
-
+  const [post, setPost] = useState({
+    product: "",
+    quantity: "",
+    unit: "",
+    price: "",
+    index: count,
+  });
+  const [isEditOrAdd, setEditOrAdd] = useState(false);
   const [listPost, setListPost] = useState([]);
-
   const Add = (params) => {
+    params.index = count;
+    setCount(count + 1);
     setListPost([...listPost, params]);
-    // const amount = count + 1;
-    // setCount(amount);
-    params = '';
-    // console.log(amount);
-    // // console.log(listPost);
+    params = "";
     toggle();
-  // console.log(params)
-
+  };
+  const Edits = (params) => {
+    var arr = listPost;
+    arr.map((e, i) => {
+      console.log(i, params.index);
+      if (i == params.index) {
+        arr[i] = params;
+        // console.log('replace')
+      }
+    });
+    setListPost([...arr]);
+    setEditOrAdd(false);
+    toggle();
   };
   // console.log(listPost);
   return (
@@ -79,11 +84,31 @@ function ManegementAdd() {
               <i class="fa-solid fa-plus"></i>
               ADD NEW
             </Button>
-              <AddNew toggle={toggle}  modal={modal}  Add={Add} />   
+            <AddNew
+              toggle={toggle}
+              count={count}
+              modal={modal}
+              Add={Add}
+              Edits={Edits}
+              isEditOrAdd={isEditOrAdd}
+              setEditOrAdd={setEditOrAdd}
+              setPost={setPost}
+              post={post}
+            />
           </div>
           {/* form addNew end */}
           <div className="content-tableAdd">
-            <TableAdd listPost={listPost} />
+            <TableAdd
+              listPost={listPost}
+              Add={Add}
+              toggle={toggle}
+              Edits={Edits}
+              isEditOrAdd={isEditOrAdd}
+              setEditOrAdd={setEditOrAdd}
+              setPost={setPost}
+              post={post}
+              setListPost={setListPost}
+            />
           </div>
         </div>
       </div>
