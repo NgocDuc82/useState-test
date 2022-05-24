@@ -125,9 +125,6 @@ th {
     border: 1px solid #33cb6c;
     min-width: 70px;
 }
-.input-group {
-   
-}
 
 .btn-edit {
     margin-right: 20px;
@@ -142,4 +139,16 @@ th {
     color: red;
     border: none;
     background: none;
+}
+
+.content-search{
+    margin-top: 40px;
+    width: 50%;
+}
+.content-search {
+    margin-top: 40px;
+    margin: auto;
+}
+.content-input {
+    width: 50%;
 }
