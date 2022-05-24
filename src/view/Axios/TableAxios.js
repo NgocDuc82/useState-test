@@ -4,7 +4,10 @@ function TableAxios(props) {
   // gán giá trị của post cần sửa lại modal
   // nút add thành nút edit
   // sửa và ghi lại giá trị
-  const {taskList, handleDelete, handleClickEdit} = props;
+  const {handleDelete, handleClickEdit,resTaskList} = props;
+  // let results = taskList.filter((item) => item.name.includes(search.value));
+  // let resTaskList = taskList.filter((item) => item.name.includes(search));
+  // console.log(search)
   return (
     <>
       <Table bordered hover borderless>
@@ -19,7 +22,7 @@ function TableAxios(props) {
         </thead>
         <>
           <tbody>
-            {taskList.map((p, index) => {
+            {resTaskList.map((p, index) => {
               return (
                 <>
                   <tr>
