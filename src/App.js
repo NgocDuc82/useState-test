@@ -8,7 +8,8 @@ function App() {
         // <>
                 //  <ManegementAdd  />
         // </>
-        <View />
+        <View />    
+        // <Admin loginPage={MyLoginPage} ></Admin>
     )
 }
 

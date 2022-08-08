@@ -77,15 +77,12 @@ function View() {
       .catch((err) => console.log(err));
   };
   // search
-  const handleClickSearch = () => {
-    // let results = taskList.filter((item) => item.name.includes(search.value));
-  };
   const handleChangeSearch = (e) => {
     const value = e.target.value;
     setSearch(value);
   };
     let resTaskList = taskList.filter((item) => item.name.includes(search));
-  console.log(search)
+  // console.log(search)
   return (
     <>
       <div className="container-fluid full">
